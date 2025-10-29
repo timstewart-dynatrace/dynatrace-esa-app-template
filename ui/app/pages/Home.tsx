@@ -1,6 +1,7 @@
 // import React from 'react'; // Removed duplicate import
 import { Flex, Heading, Text, Container } from '@dynatrace/strato-components';
 import { AnalyticsIcon, AppsIcon } from '@dynatrace/strato-icons';
+import DynatraceStatus from '../components/DynatraceStatus';
 
 /**
  * Home Page Component
@@ -23,7 +24,10 @@ const Home: React.FC = () => {
             Welcome to your modern Dynatrace application built with the latest
             AppEngine framework and Strato design system
           </Text>
-  {/* End Features Section */}
+        </Flex>
+
+        {/* Dynatrace Status Section */}
+        <DynatraceStatus />
 
         {/* Features Section */}
         <Flex gap={16} flexWrap="wrap" justifyContent="center">
@@ -32,7 +36,7 @@ const Home: React.FC = () => {
               <AnalyticsIcon size={32} />
               <Heading level={3}>Grail Integration</Heading>
               <Text>
-                Query and analyze data from Grail, Dynatrace's massively
+                Query and analyze data from Grail, Dynatrace&apos;s massively
                 parallel processing data lakehouse
               </Text>
             </Flex>
@@ -56,7 +60,6 @@ const Home: React.FC = () => {
               </Text>
             </Flex>
           </Container>
-        </Flex>
         </Flex>
 
         {/* Action Section */}

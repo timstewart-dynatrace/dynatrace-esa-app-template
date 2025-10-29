@@ -1,7 +1,7 @@
 {
-  "name": "dynatrace-gen3-app-template",
+  "name": "dynatrace-esa-app-1",
   "version": "1.0.0",
-  "description": "A template starter project for building Dynatrace Gen3 applications",
+  "description": "D1 ESA Dynatrace Gen3 application",
   "private": true,
   "type": "module",
   "scripts": {

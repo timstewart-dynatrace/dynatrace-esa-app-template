@@ -1,6 +1,6 @@
-# Dynatrace Gen3 App Template
+# My App 1 (D1-ESA)
 
-A starter template for building Dynatrace Gen3 applications by D1 Enterprise Solutions & Architecture.
+D1 ESA Dynatrace Gen3 application
 
 ## Overview
 
@@ -20,7 +20,7 @@ This template provides a clean starting point for building custom Dynatrace appl
 ```bash
 # Copy this entire directory to start a new project
 cp -r DYNATRACE1-ESA-APP-TEMPLATE YOUR-NEW-APP-NAME
-cd YOUR-NEW-APP-NAME
+cd dynatrace-esa-app-1
 ```
 
 ### 2. Update Configuration
@@ -30,8 +30,8 @@ Edit `app.config.json` to customize your app:
 ```json
 {
   "app": {
-    "id": "my.company.app.yourappname",
-    "name": "Your App Name",
+    "id": "my.d1esa.app.1",
+    "name": "My App 1 (D1-ESA)",
     "version": "1.0.0",
     "description": "Your app description"
   }

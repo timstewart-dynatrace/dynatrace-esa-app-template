@@ -2,9 +2,10 @@ import React, { useMemo, useState } from 'react';
 import { Container, Flex, Heading, Text, Button } from '@dynatrace/strato-components';
 import { DataTableV2, DQLEditor } from '@dynatrace/strato-components-preview';
 import { queryExecutionClient } from '@dynatrace-sdk/client-grail';
+import './Dashboard.css';
 
 /**
- * Dashboard - Template App
+ * Dashboard - My App 1 (D1-ESA)
  * A starter template for building Dynatrace Gen3 applications
  * Features:
  * - DQL Editor for querying Grail data
@@ -15,7 +16,7 @@ import { queryExecutionClient } from '@dynatrace-sdk/client-grail';
 interface LogDataPoint {
   timestamp: string;
   content?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Dashboard: React.FC = () => {
@@ -47,9 +48,10 @@ const Dashboard: React.FC = () => {
       } else {
         setError('No data returned from query');
       }
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error('DQL query error:', e);
-      setError(`Failed to execute DQL query: ${e.message || 'Unknown error'}`);
+      const errorMessage = e instanceof Error ? e.message : 'Unknown error';
+      setError(`Failed to execute DQL query: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
@@ -74,7 +76,7 @@ const Dashboard: React.FC = () => {
     return keys.map(key => ({
       id: key,
       header: key.charAt(0).toUpperCase() + key.slice(1),
-      accessor: key as any,
+      accessor: key as keyof LogDataPoint,
       autoWidth: true,
       resizable: true,
     }));
@@ -83,7 +85,7 @@ const Dashboard: React.FC = () => {
   return (
     <Flex flexDirection="column" gap={24} padding={24}>
       <Flex justifyContent="space-between" alignItems="center">
-        <Heading level={1}>Template App</Heading>
+        <Heading level={1}>My App 1 (D1-ESA)</Heading>
         <Text style={{
           fontSize: '12px',
           color: 'var(--dt-colors-text-neutral-default, #b4b4be)',
@@ -108,11 +110,7 @@ const Dashboard: React.FC = () => {
         }}>
           This template provides a starting point for building your own Dynatrace Gen3 applications. It includes the following features:
         </Text>
-        <ul style={{
-          color: 'var(--dt-colors-text-neutral-default, #f0f0f5)',
-          lineHeight: 1.8,
-          marginLeft: 20
-        }}>
+        <ul className="feature-list">
           <li><strong>DQL Editor:</strong> Query data from Grail using Dynatrace Query Language</li>
           <li><strong>Tabbed Interface:</strong> Organize your content across multiple tabs</li>
           <li><strong>Data Table:</strong> Display query results in a sortable, paginated table</li>
@@ -126,7 +124,7 @@ const Dashboard: React.FC = () => {
           marginTop: 16,
           fontStyle: 'italic'
         }}>
-          <strong>Getting Started:</strong> Copy this template directory to create a new app project. Update the app.config.json with your app's unique ID and name, then customize the components to fit your use case.
+          <strong>Getting Started:</strong> Copy this template directory to create a new app project. Update the app.config.json with your app&apos;s unique ID and name, then customize the components to fit your use case.
         </Text>
       </Container>
 
@@ -172,7 +170,7 @@ const Dashboard: React.FC = () => {
               opacity: activeTab === 'tab1' ? 1 : 0.7
             }}
           >
-            Tab 1
+            Dynatrace Status
           </Button>
           <Button
             variant="default"
@@ -212,7 +210,7 @@ const Dashboard: React.FC = () => {
                 }}>
                   Displaying {tableData.length} rows from the DQL query
                 </Text>
-                <div style={{ width: '100%' }}>
+                <div className="table-container">
                   <DataTableV2 data={tableData} columns={tableColumns} resizable>
                     <DataTableV2.Pagination defaultPageSize={50} pageSizeOptions={[25, 50, 100, 200]} />
                   </DataTableV2>
@@ -220,7 +218,7 @@ const Dashboard: React.FC = () => {
               </>
             ) : (
               <Text style={{ color: 'var(--dt-colors-text-neutral-default, #f0f0f5)' }}>
-                No data available. Click "Run DQL" to execute the query.
+                No data available. Click &quot;Run DQL&quot; to execute the query.
               </Text>
             )}
           </Container>

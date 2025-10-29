@@ -1,0 +1,31 @@
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-indicator-small {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-operational {
+  background-color: #6cc24a;
+}
+
+.status-minor {
+  background-color: #f5a623;
+}
+
+.status-major {
+  background-color: #f57c00;
+}
+
+.status-critical {
+  background-color: #d32f2f;
+}
+
+.status-unknown {
+  background-color: #9e9e9e;
+}

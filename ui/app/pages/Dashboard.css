@@ -1,0 +1,9 @@
+.feature-list {
+  color: var(--dt-colors-text-neutral-default, #f0f0f5);
+  line-height: 1.8;
+  margin-left: 20px;
+}
+
+.table-container {
+  width: 100%;
+}
